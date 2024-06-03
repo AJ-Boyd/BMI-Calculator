@@ -1,0 +1,20 @@
+html, body{
+    height: 100%;
+    width: 100%;
+}
+h3{
+    background-color: #AAA;
+    padding-left: 1%;
+}
+.main{
+    background: #CCC;
+}
+.form-main, .form-btn-container, .results{
+    padding: 1%;
+}
+.results{
+    display: none;
+}
+.result{
+    font-weight: bold;
+}

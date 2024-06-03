@@ -1,1 +1,1 @@
-This is a simple webpage that allows users to calculate their Body Mass Index (BMI) and maintenence calories.
+This is a simple webpage that allows users to calculate their Body Mass Index (BMI) and maintenance calories.
