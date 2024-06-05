@@ -58,29 +58,29 @@
                         <div class="mb-3 d-flex align-items-center form-main">
                             <input id="height-input2" type="text" class="me-3" size="15" placeholder="Enter Height">
                             <div class="form-check">
-                                <input type="radio" class="form-check-input" id="radio-in" name="optHeight" value="in" checked>
+                                <input type="radio" class="form-check-input" id="radio-in" name="optHeight2" value="in" checked>
                                 <label class="form-check-label" for="radio-in">Inches (in)</label>
                                 
                             </div>
                             <div class="form-check">
-                                <input type="radio" class="form-check-input" id="radio-m" name="optHeight" value="m" >
+                                <input type="radio" class="form-check-input" id="radio-m" name="optHeight2" value="m" >
                                 <label class="form-check-label" for="radio-m">Meters (m)</label>
                             </div>   
                         </div>
                         <div class="mb-3 d-flex align-items-center form-main">
                             <input id="weight-input2" type="text" class="me-3" size="15" placeholder="Enter Weight">
                             <div class="form-check">
-                                <input type="radio" class="form-check-input" id="radio-lbs" name="optWeight" value="lbs" checked>
+                                <input type="radio" class="form-check-input" id="radio-lbs" name="optWeight2" value="lbs" checked>
                                 <label class="form-check-label" for="radio-lbs">Pounds (lbs)</label>
                                 
                             </div>
                             <div class="form-check">
-                                <input type="radio" class="form-check-input" id="radio-kg" name="optWeight" value="kg" >
+                                <input type="radio" class="form-check-input" id="radio-kg" name="optWeight2" value="kg" >
                                 <label class="form-check-label" for="radio-kg">Kilograms (kg)</label>
                             </div>   
                         </div>
                         <div class="form-main">
-                            <input id="age-input" class=" me-3" size="3" placeholder="Age">
+                            <input id="age-input" class=" me-3" size="3" placeholder="Age">years
                         </div>
                         <div class=" d-flex align-items-center form-main">
                             Gender:
@@ -94,21 +94,24 @@
                             </div>   
                         </div>
                         <div class="dropdown form-main">
-                            <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">
+                            <button id="activity-btn" type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">
                               Level of Activity
                             </button>
                             <ul class="dropdown-menu">
-                              <li>Basic Metabolic Rate (BMR)</li>
-                              <li>No exercise</li>
-                              <li>1-3 times a week></li>
-                              <li>4-5 times a week</li>
-                              <li>6-7 times a week</li>
-                              <li>Daily exercise/Physical job</li>
+                              <li onclick="selectActivity('Basal Metabolic Rate (BMR)', 1)">Basal Metabolic Rate (BMR)</li>
+                              <li onclick="selectActivity('No exercise', 1.2)">No exercise</li>
+                              <li onclick="selectActivity('1-3 times a week', 1.375)">1-3 times a week</li>
+                              <li onclick="selectActivity('4-5 times a week', 1.55)">4-5 times a week</li>
+                              <li onclick="selectActivity('6-7 times a week', 1.725)">6-7 times a week</li>
+                              <li onclick="selectActivity('Daily exercise/Physical job', 1.9)">Daily exercise/Physical job</li>
                             </ul>
-                          </div>
-                          <div class="form-btn-container">
-                            <button onclick="calcMCal();" type="button" class="btn btn-primary">Calculate Maintance Calories</button>
-                            <button onclick="clearMCal();" type="button" class="btn btn-secondary">Clear</button>
+                        </div>
+                        <div id="bmr-results" class="results">
+                            <h4>Your maintance calories are: <span id="bmr-result">18</span></h4>
+                        </div>
+                        <div class="form-btn-container">
+                            <button onclick="calcBMR();" type="button" class="btn btn-primary">Calculate Maintance Calories</button>
+                            <button onclick="clearBMR();" type="button" class="btn btn-secondary">Clear</button>
                         </div>
                     </form>
                 </div>

@@ -18,3 +18,11 @@ h3{
 .result{
     font-weight: bold;
 }
+.dropdown-menu li{
+    width: 230px;
+    padding-left: 1%; 
+    cursor: pointer;
+}
+.dropdown-menu li:hover{
+    background-color: #DDD;
+}

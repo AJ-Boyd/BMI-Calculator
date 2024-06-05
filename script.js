@@ -8,6 +8,7 @@ desc: logic functionality to calculate BMI and maintenance calories
 const M_CONVERT = 39.3701;
 const KG_CONVERT = 2.20462;
 
+//function to calculate BMI
 function calcBMI(){
     //get inputs 
     var height = document.getElementById("height-input").value , weight = document.getElementById("weight-input").value;
@@ -45,8 +46,59 @@ function calcBMI(){
     }
 }
 
+var activityConst = 1; //constant used in BMR formula
+
 //clears fields of the BMI form
 function clearBMI(){
     document.getElementById("height-input").value = "";
     document.getElementById("weight-input").value = "";
+    document.getElementById("bmi-results").style.display = "none";
+}
+
+//function changes dropdown text
+function selectActivity(activity, constant){
+    var dropdown = document.getElementById("activity-btn")
+    dropdown.innerHTML = activity;
+    activityConst = constant
+}
+
+//function to calculate BMR
+function calcBMR(){
+    //get height, weight, and age
+    var height = document.getElementById("height-input2").value,
+        weight = document.getElementById("weight-input2").value,
+        age = document.getElementById("age-input").value;
+    
+    //validate
+    if(Number.isNaN(parseFloat(height)) || Number.isNaN(parseFloat(weight)) || !(age >= 18 && age <= 80)){
+        alert("ensure valid heights and weights are added. Age must be between 18-80.")
+        return;
+    }
+
+    //convert from imperial to metric
+    var heightUnit = document.querySelector('input[name="optHeight2"]:checked').value,
+        weightUnit = document.querySelector('input[name="optWeight2"]:checked').value
+
+    if(heightUnit == "in")
+        height *= 2.54
+    if(weightUnit == "lbs")
+        weight /= 2.2
+
+    //get gender option
+    var gender = document.querySelector('input[name="optGender"]:checked').value;
+    //assign formula bias according to gender
+    var genderBias = (gender == "male") ? 5 : -161
+    var bmr = (10 * weight) + (6.25 * height) - (5 * age) + genderBias
+    
+    //show final results
+    document.getElementById("bmr-results").style.display = "block";
+    document.getElementById("bmr-result").innerHTML = (activityConst * bmr).toFixed(0);
+}
+
+//function clears fields for BMR calculator
+function clearBMR(){
+    document.getElementById("height-input2").value = "";
+    document.getElementById("weight-input2").value = "";
+    document.getElementById("age-input").value = "";
+    document.getElementById("bmr-results").style.display = "none";
 }
